@@ -36,7 +36,7 @@ public class TcpServer extends Thread {
         readJokes();
         try {
             ServerSocket server = new ServerSocket(50000);
-            while(true) {
+            while(!jokes.isEmpty()) {
                 Socket conexao = server.accept();
                 TcpServer sThread = new TcpServer(conexao);
                 System.out.println("Client asking for joke...");
